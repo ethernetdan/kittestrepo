@@ -1,0 +1,35 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "go",
+        "selfLink": "/api/v1/namespaces/pods/go",
+        "creationTimestamp": null
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "go",
+                "image": "golang:1.6",
+                "command": [
+                    "/bin/sh",
+                    "-c"
+                ],
+                "args": [
+                    "echo container A!; ping $(hostname) \u0026\u0026 sleep 10 \u0026\u0026 echo $(hostname) \u0026\u0026 sleep 60"
+                ],
+                "resources": {},
+                "terminationMessagePath": "/dev/termination-log",
+                "imagePullPolicy": "IfNotPresent"
+            }
+        ],
+        "restartPolicy": "Always",
+        "terminationGracePeriodSeconds": 30,
+        "dnsPolicy": "ClusterFirst",
+        "nodeName": "localkube",
+        "securityContext": {}
+    },
+    "status": {
+        "phase": "Pending"
+    }
+}
