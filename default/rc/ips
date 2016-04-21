@@ -1,0 +1,66 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "ips",
+        "selfLink": "/api/v1/namespaces/replicationcontrollers/ips",
+        "generation": 1,
+        "creationTimestamp": null,
+        "labels": {
+            "app": "ip"
+        }
+    },
+    "spec": {
+        "replicas": 3,
+        "selector": {
+            "app": "ip"
+        },
+        "template": {
+            "metadata": {
+                "creationTimestamp": null,
+                "labels": {
+                    "app": "ip"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "facebook",
+                        "image": "ubuntu:14.04",
+                        "command": [
+                            "/bin/sh",
+                            "-c"
+                        ],
+                        "args": [
+                            "echo container A!; ping $(hostname) \u0026\u0026 sleep 10 \u0026\u0026 echo $(hostname) \u0026\u0026 sleep 60"
+                        ],
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "IfNotPresent"
+                    },
+                    {
+                        "name": "myspace",
+                        "image": "ubuntu:14.04",
+                        "command": [
+                            "/bin/sh",
+                            "-c"
+                        ],
+                        "args": [
+                            "echo container A!; ping $(hostname) \u0026\u0026 sleep 10 \u0026\u0026 echo $(hostname) \u0026\u0026 sleep 60"
+                        ],
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "IfNotPresent"
+                    }
+                ],
+                "restartPolicy": "Always",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "securityContext": {}
+            }
+        }
+    },
+    "status": {
+        "replicas": 0
+    }
+}
