@@ -1,36 +1,36 @@
 {
-    kind: Service,
-    apiVersion: v1,
-    metadata: {
-        name: kube-dns,
-        selfLink: /api/v1/namespaces/services/kube-dns,
-        creationTimestamp: null,
-        labels: {
-            k8s-app: kube-dns,
-            kubernetes.io/cluster-service: true,
-            kubernetes.io/name: KubeDNS
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kube-dns",
+        "selfLink": "/api/v1/namespaces/services/kube-dns",
+        "creationTimestamp": null,
+        "labels": {
+            "k8s-app": "kube-dns",
+            "kubernetes.io/cluster-service": "true",
+            "kubernetes.io/name": "KubeDNS"
         }
     },
-    spec: {
-        ports: [
+    "spec": {
+        "ports": [
             {
-                name: dns,
-                protocol: UDP,
-                port: 53,
-                targetPort: 1970
+                "name": "dns",
+                "protocol": "UDP",
+                "port": 53,
+                "targetPort": 1970
             },
             {
-                name: dns-tcp,
-                protocol: TCP,
-                port: 53,
-                targetPort: 1970
+                "name": "dns-tcp",
+                "protocol": "TCP",
+                "port": 53,
+                "targetPort": 1970
             }
         ],
-        clusterIP: u003cunknownu003e,
-        type: ClusterIP,
-        sessionAffinity: None
+        "clusterIP": "\u003cunknown\u003e",
+        "type": "ClusterIP",
+        "sessionAffinity": "None"
     },
-    status: {
-        loadBalancer: {}
+    "status": {
+        "loadBalancer": {}
     }
 }
